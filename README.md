@@ -2,6 +2,8 @@
 
 CyberShield is a Streamlit dashboard for exploring network-flow threat detection with a Random Forest model trained on UNSW-NB15. It includes a FastAPI service and a bundled browser interface for local use as well.
 
+**Live app:** [cybershield-ai-daqo.onrender.com](https://cybershield-ai-daqo.onrender.com/)
+
 ## Run the dashboard locally
 
 Python 3.11 or 3.12 is recommended for the scikit-learn model artifacts.
@@ -29,14 +31,14 @@ Open http://localhost:8000. The interactive API documentation is at http://local
 
 ## Deploy the dashboard
 
-The Streamlit app is the recommended hosted version. Create a new app in [Streamlit Community Cloud](https://share.streamlit.io/), select this GitHub repository, set the app file to `streamlit_app.py`, and deploy. The repository includes the binary model artifacts and the UNSW-NB15 test sample used by the dashboard.
+The FastAPI service and bundled web interface are hosted on Render using `render.yaml`. The Streamlit dashboard can also be hosted on [Streamlit Community Cloud](https://share.streamlit.io/): select this GitHub repository, set the app file to `streamlit_app.py`, and deploy.
 
 The FastAPI service can be deployed separately on a Python web service using `uvicorn server:app --host 0.0.0.0 --port $PORT`. A Render configuration is included in `render.yaml`.
 
 ## What is included
 
 - Random Forest binary classifier and preprocessing artifact.
-- A small sample of the UNSW-NB15 testing data for interactive inspection.
+- The UNSW-NB15 training and testing partitions used by the app.
 - Streamlit SOC dashboard and FastAPI backend.
 - Windows launcher (`start.bat`) for the API and bundled frontend.
 
