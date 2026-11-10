@@ -1,0 +1,201 @@
+{
+  "task": "binary",
+  "trained_at": "2026-11-09T17:25:30.099587",
+  "train_samples": 82332,
+  "test_samples": 175341,
+  "feature_count": 42,
+  "transformed_feature_count": 190,
+  "feature_columns": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "classes": [
+    "Normal",
+    "Attack"
+  ],
+  "models": {
+    "Random Forest": {
+      "type": "Baseline",
+      "metrics": {
+        "accuracy": 0.9025,
+        "precision": 0.9881,
+        "recall": 0.8672,
+        "f1_score": 0.9237,
+        "macro_f1": 0.8943,
+        "weighted_f1": 0.9049,
+        "confusion_matrix": [
+          [
+            54750,
+            1250
+          ],
+          [
+            15854,
+            103487
+          ]
+        ],
+        "classes": [
+          "Normal",
+          "Attack"
+        ],
+        "classification_report": {
+          "Normal": {
+            "precision": 0.7754518157611466,
+            "recall": 0.9776785714285714,
+            "f1-score": 0.8649015828883764,
+            "support": 56000.0
+          },
+          "Attack": {
+            "precision": 0.9880653446251086,
+            "recall": 0.8671537862092659,
+            "f1-score": 0.923669436535492,
+            "support": 119341.0
+          },
+          "accuracy": 0.9024529345674999,
+          "macro avg": {
+            "precision": 0.8817585801931276,
+            "recall": 0.9224161788189187,
+            "f1-score": 0.8942855097119342,
+            "support": 175341.0
+          },
+          "weighted avg": {
+            "precision": 0.9201613312090686,
+            "recall": 0.9024529345674999,
+            "f1-score": 0.9049002963786634,
+            "support": 175341.0
+          }
+        },
+        "top_feature_importances": {
+          "sttl": 0.09071543977258618,
+          "ct_dst_src_ltm": 0.06933015708538377,
+          "sload": 0.0688953848628784,
+          "sbytes": 0.05487109735242352,
+          "ct_state_ttl": 0.054161794478586,
+          "ct_dst_sport_ltm": 0.04305372516603236,
+          "rate": 0.040887144030045876,
+          "smean": 0.03951392565196448,
+          "ct_srv_dst": 0.03906893195159251,
+          "dbytes": 0.03730315614495659,
+          "dmean": 0.03449534226970012,
+          "dttl": 0.033915295320589074,
+          "dpkts": 0.02697276337111646,
+          "ct_srv_src": 0.026375616072700055,
+          "synack": 0.024214647726616932,
+          "dur": 0.024107893228143874,
+          "sinpkt": 0.02019359870212354,
+          "tcprtt": 0.019731491305600892,
+          "dinpkt": 0.016096255147103986,
+          "proto_tcp": 0.015131474417630566,
+          "dload": 0.014912675417983348,
+          "sjit": 0.014773712587500551,
+          "sloss": 0.014359739091597707,
+          "spkts": 0.013153253194569637,
+          "service_-": 0.013080467641801824
+        }
+      },
+      "hyperparameters": {
+        "n_estimators": 60,
+        "max_depth": 16,
+        "random_state": 42
+      },
+      "artifact_file": "random_forest.joblib"
+    },
+    "Gradient Boosting": {
+      "type": "Comparison",
+      "metrics": {
+        "accuracy": 0.8978,
+        "precision": 0.9893,
+        "recall": 0.8591,
+        "f1_score": 0.9196,
+        "macro_f1": 0.8896,
+        "weighted_f1": 0.9004,
+        "confusion_matrix": [
+          [
+            54886,
+            1114
+          ],
+          [
+            16813,
+            102528
+          ]
+        ],
+        "classes": [
+          "Normal",
+          "Attack"
+        ],
+        "classification_report": {
+          "Normal": {
+            "precision": 0.7655057950599032,
+            "recall": 0.9801071428571428,
+            "f1-score": 0.8596151888425124,
+            "support": 56000.0
+          },
+          "Attack": {
+            "precision": 0.9892514617626059,
+            "recall": 0.8591179896263648,
+            "f1-score": 0.9196037366077234,
+            "support": 119341.0
+          },
+          "accuracy": 0.8977592234560086,
+          "macro avg": {
+            "precision": 0.8773786284112546,
+            "recall": 0.9196125662417538,
+            "f1-score": 0.8896094627251179,
+            "support": 175341.0
+          },
+          "weighted avg": {
+            "precision": 0.917792092103762,
+            "recall": 0.8977592234560086,
+            "f1-score": 0.9004447340079219,
+            "support": 175341.0
+          }
+        }
+      },
+      "hyperparameters": {
+        "max_iter": 60,
+        "max_depth": 12,
+        "random_state": 42
+      },
+      "artifact_file": "gradient_boosting.joblib"
+    }
+  }
+}
